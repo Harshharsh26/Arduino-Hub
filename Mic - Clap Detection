@@ -1,0 +1,15 @@
+int micDigital = 2;
+int micState;
+
+void setup() {
+  pinMode(micDigital, INPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  micState = digitalRead(micDigital);
+  if (micState == HIGH) {
+    Serial.println("Sound Detected!");
+  }
+  delay(100);
+}
