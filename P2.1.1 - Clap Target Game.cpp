@@ -1,6 +1,5 @@
 /* Target Game - Clap exactly the target number
-Goal: OLED shows a random target number. Kids must clap exactly that many times. If they match, the screen shows “You Win!” otherwise “Too Many!” after they finish.
-Explanation: The game gives 5 seconds to clap. Every rising HIGH on D2 increments clapCount. After time ends, it compares count vs target and shows result. Then it starts a new round.
+
 Wiring:
   OLED (I2C): VCC->5V, GND->GND, SDA->A4, SCL->A5
   LM393: VCC->5V, GND->GND, D0->D2 (digital)
@@ -27,7 +26,12 @@ void setup() {
   pinMode(SOUND_PIN, INPUT);
   Serial.begin(9600);
   display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
-  display.clearDisplay();
+  display.clearDisplay();    // clear screen
+  display.setTextSize(2);    // text size 1–3
+  display.setTextColor(SSD1306_WHITE); 
+  display.setCursor(0,0);    
+  display.print("!!!START!!!");
+  display.display();
   randomSeed(analogRead(A3));
   newGame();
 }
