@@ -1,6 +1,9 @@
 /* Improved Noise Meter Face
    Shows :) if quiet, >:( if loud
    Uses averaging for better sensitivity
+   SSD1306 (I2C)
+      VCC -> 5V       GND -> GND       SDA -> A4      SCL -> A5
+   Mic Module - A0 - Analog out 
 */
 
 #include <Wire.h>
